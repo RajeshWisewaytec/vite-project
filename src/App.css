@@ -460,7 +460,9 @@
 
 .hero-title {
   font-size: 2.4rem;
+  font-weight: 700;
   margin: 16px 0 8px;
+   line-height: 1.3;
   background: linear-gradient(135deg, var(--text-h) 30%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
