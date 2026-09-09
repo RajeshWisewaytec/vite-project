@@ -104,32 +104,32 @@ function App() {
   };
 
   // Auto-connect if already connected & listen to account changes
-  useEffect(() => {
-    if (window.ethereum) {
-      window.ethereum.request({ method: "eth_accounts" }).then((accounts) => {
-        if (accounts.length > 0) {
-          setAccount(accounts[0]);
-          const provider = new ethers.BrowserProvider(window.ethereum);
-          fetchBalances(accounts[0], provider);
-        }
-      });
+  // useEffect(() => {
+  //   if (window.ethereum) {
+  //     window.ethereum.request({ method: "eth_accounts" }).then((accounts) => {
+  //       if (accounts.length > 0) {
+  //         setAccount(accounts[0]);
+  //         const provider = new ethers.BrowserProvider(window.ethereum);
+  //         fetchBalances(accounts[0], provider);
+  //       }
+  //     });
 
-      const handleAccounts = (accounts) => {
-        if (accounts.length > 0) {
-          setAccount(accounts[0]);
-          const provider = new ethers.BrowserProvider(window.ethereum);
-          fetchBalances(accounts[0], provider);
-        } else {
-          setAccount("");
-          setNativeBalance("0");
-          setUsdtBalance("0");
-        }
-      };
+  //     const handleAccounts = (accounts) => {
+  //       if (accounts.length > 0) {
+  //         setAccount(accounts[0]);
+  //         const provider = new ethers.BrowserProvider(window.ethereum);
+  //         fetchBalances(accounts[0], provider);
+  //       } else {
+  //         setAccount("");
+  //         setNativeBalance("0");
+  //         setUsdtBalance("0");
+  //       }
+  //     };
 
-      window.ethereum.on("accountsChanged", handleAccounts);
-      return () => window.ethereum.removeListener("accountsChanged", handleAccounts);
-    }
-  }, []);
+  //     window.ethereum.on("accountsChanged", handleAccounts);
+  //     return () => window.ethereum.removeListener("accountsChanged", handleAccounts);
+  //   }
+  // }, []);
 
   return (
     <div className="app-container">
